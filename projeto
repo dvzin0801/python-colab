@@ -1,0 +1,111 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/dvzin0801/python-colab/blob/main/projeto\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# Nova seção"
+      ],
+      "metadata": {
+        "id": "vpWij__BJgE5"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "# notas do aluno\n",
+        "def cadastrar_notas():\n",
+        "    notas = []\n",
+        "    while True:\n",
+        "        try:\n",
+        "            nota = float(input(\"Digite a nota do aluno (ou -1 para finalizar): \"))\n",
+        "            if nota == -1:  # condição de parada\n",
+        "                break\n",
+        "            elif 0 <= nota <= 10:\n",
+        "                notas.append(nota)\n",
+        "            else:\n",
+        "                print(\" Digite uma nota válida entre 0 e 10.\")\n",
+        "        except ValueError:\n",
+        "            print(\" Entrada inválida. Digite um número.\")\n",
+        "    return notas\n",
+        "#calcula a média das notas\n",
+        "def calcular_media(notas):\n",
+        "    if len(notas) == 0:\n",
+        "        return 0\n",
+        "    return sum(notas) / len(notas)\n",
+        "\n",
+        "def verificar_situacao(media):\n",
+        "    if media >= 7:\n",
+        "        return \"Aprovado\"\n",
+        "    else:\n",
+        "        return \"Reprovado\"\n",
+        "  # relatorio final\n",
+        "def exibir_relatorio(notas, media, situacao):\n",
+        "    print(\"\\n--- Relatório Final ---\")\n",
+        "    print(f\"Notas: {notas}\")\n",
+        "    print(f\"Média: {media:.2f}\")\n",
+        "    print(f\"Situação: {situacao}\")\n",
+        "\n",
+        "# lista\n",
+        "def main():\n",
+        "    print(\" Sistema de Gestão de Notas\")\n",
+        "    notas = cadastrar_notas()\n",
+        "    media = calcular_media(notas)\n",
+        "    situacao = verificar_situacao(media)\n",
+        "    exibir_relatorio(notas, media, situacao)\n",
+        "\n",
+        "# Executar\n",
+        "main()\n"
+      ],
+      "metadata": {
+        "id": "p4uhZQWDJgmw",
+        "outputId": "9a96ccb8-f063-4544-fea1-ff54c58fa429",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            " Sistema de Gestão de Notas\n",
+            "Digite a nota do aluno (ou -1 para finalizar): 8\n",
+            "Digite a nota do aluno (ou -1 para finalizar): 2\n",
+            "Digite a nota do aluno (ou -1 para finalizar): 7\n",
+            "Digite a nota do aluno (ou -1 para finalizar): -1\n",
+            "\n",
+            "--- Relatório Final ---\n",
+            "Notas: [8.0, 2.0, 7.0]\n",
+            "Média: 5.67\n",
+            "Situação: Reprovado\n"
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "toc_visible": true,
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
